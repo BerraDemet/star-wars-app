@@ -1,17 +1,19 @@
-import { useState } from "react";
 import Header from "./assets/components/Header";
-import FilterBox from "./assets/components/FilterBox";
 import ShipLists from "./assets/components/ShipLists";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ShipDetails from "./assets/components/ShipDetails";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <div className="header-container">
         <Header />
-        <FilterBox />
       </div>
-      <ShipLists />
-    </>
+      <Routes>
+        <Route path="/" element={<ShipLists />} />
+        <Route path="/ships/:name" element={<ShipDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
